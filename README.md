@@ -1,5 +1,7 @@
 # Frontdoor: die Wirkung über den Mediator – Streamlit-Demo
 
+**[→ Demo live ausprobieren](https://sebastianhanisch-frontdoor-demo.streamlit.app/)**
+
 Achtes Stück der Linie **Kausale Diagramme und Adjustierung** in der „Konzepte“-Reihe im Portfolio von [Sebastian Hanisch](https://sebastianhanisch.net) (Operations Research und Machine Learning). Nachfolger von [doppelt-robust-demo](https://github.com/sebastian-hanisch/doppelt-robust-demo): Dort waren alle Störfaktoren beobachtet. Hier ist die gemeinsame Ursache von Regel und Ergebnis **verborgen**, und die Wirkung wird trotzdem bestimmt, weil sie ganz über einen beobachteten Mediator läuft.
 
 ## Kernfrage
@@ -95,4 +97,4 @@ Streamlit Cloud: Python 3.12.
 
 Gebaut mit Streamlit, Plotly, numpy, pandas und fpdf2.
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Kausale Diagramme: von Konfundierung bis Wahl](https://sebastianhanisch.net/konzepte-kausale-diagramme.html).
