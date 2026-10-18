@@ -82,7 +82,7 @@ st.markdown(
     """
 **Wo die Hintertür verschlossen bleibt, hilft die Vordertür.** Dies ist das achte Stück der Linie **Kausale Diagramme und Adjustierung**. Das dritte Stück hat gezeigt, dass es bei einer
 verborgenen gemeinsamen Ursache keine gültige Menge zum Festhalten gibt; das vierte, dass der Mediator als Kontrolle schadet. Hier ist derselbe Mediator der Schlüssel: Läuft die
-Wirkung der Regel **ganz** über den Bestand, schätzt man in zwei Schritten erst, was die Regel mit dem Bestand macht, dann, was der Bestand bei festem x mit dem Servicegrad macht. Das
+Wirkung der Regel **ganz** über den Bestand, den die Standortqualität nicht erreicht und der mit dem Servicegrad nichts anderes verbindet, schätzt man in zwei Schritten erst, was die Regel mit dem Bestand macht, dann, was der Bestand bei festem x mit dem Servicegrad macht. Das
 **Produkt** ist die Gesamtwirkung, ohne dass man den verborgenen Confounder kennt.
 
 Weiter unten: vier Experimente (**🔬**), **🚧 Wo die Annahmen enden** und der Expander **📐 Mathematische Formulierung**.
@@ -96,7 +96,7 @@ with st.expander("So funktioniert die Vordertür", expanded=True):
 2. **Erster Schritt.** Regression von M auf X: Es gibt keinen offenen Rückweg von X zu M (der Weg X ← U → Y ← M ist durch den Collider Y blockiert), also ist ĉ ohne Verzerrung.
 3. **Zweiter Schritt.** Regression von Y auf M **und X**: Festhalten von X blockiert den Rückweg M ← X ← U → Y, also ist d̂ ohne Verzerrung.
 4. **Das Produkt ĉ · d̂** ist die Gesamtwirkung. Die Kontrolle für M allein dagegen sperrt den Weg, den man messen will (Stück 4).
-5. **Nicht testbar.** Keine dieser Annahmen lässt sich aus den Daten prüfen; das Experiment zeigt, was bei Verletzung passiert.
+5. **Nicht testbar.** Mit nur X, M und Y lässt sich keine dieser Annahmen aus den Daten prüfen; das Experiment zeigt, was bei Verletzung passiert.
         """
     )
 
@@ -121,7 +121,7 @@ with st.sidebar:
     e_ = st.slider("Direkte Wirkung Regel → Servicegrad", *bounds("e_slider"), step=C.E_STEP, key="e_slider", help="Ein Pfeil an der Vordertür vorbei: Die Frontdoor sieht ihn nicht.")
     f_ = st.slider("Standortqualität wirkt auf den Bestand", *bounds("f_slider"), step=C.F_STEP, key="f_slider", help="Der verborgene Confounder erreicht den Mediator: Der erste Schritt ist verzerrt.")
     g_ = st.slider("Zweiter Confounder (Bestand und Servicegrad)", *bounds("g_slider"), step=C.G_STEP, key="g_slider", help="Eine zweite verborgene Ursache für Bestand und Servicegrad: Der zweite Schritt ist verzerrt.")
-    noise = st.slider("Messrauschen im Bestand", *bounds("noise_slider"), step=C.NOISE_STEP, key="noise_slider", help="Standardabweichung des Messfehlers im Mediator (die Streuung des Bestands ohne Fehler ist etwa 1,7).")
+    noise = st.slider("Messrauschen im Bestand", *bounds("noise_slider"), step=C.NOISE_STEP, key="noise_slider", help="Standardabweichung des Messfehlers im Mediator (die Streuung des Bestands ohne Fehler ist bei der Voreinstellung etwa 1,7).")
     st.markdown("**Daten**")
     n = st.slider("Beobachtungen n", *bounds("n_slider"), step=C.N_STEP, key="n_slider", help="Stichprobengröße der simulierten Daten.")
     seed = st.number_input("Zufalls-Seed der Stichprobe", *bounds("seed_input"), key="seed_input", step=1)
@@ -212,8 +212,8 @@ st.markdown(
 | **Der Confounder erreicht den Mediator nicht** | Der erste Schritt ist verzerrt, die Frontdoor ebenfalls (Experiment 2). | Wann geht es gar nicht? |
 | **Kein zweiter Confounder zwischen Mediator und Ergebnis** | Der Rückweg vom Mediator zum Ergebnis ist nicht blockiert (Experiment 2). | Sensitivität und Falsifikation |
 | **Der Mediator ist genau gemessen** | Messrauschen zieht den zweiten Schritt zum Nullpunkt: bei Rauschen 1,0 halbiert sich die Schätzung (Experiment 2). | Sensitivität und Falsifikation |
-| **Die Struktur ist bekannt** | Keine der Annahmen lässt sich aus den Daten prüfen; ein falsches Diagramm gibt eine sichere, aber falsche Zahl. | Wie falsch darf das Diagramm sein? |
-| **Es gibt überhaupt eine Vordertür** | In nur etwa jedem zehnten Zufallsdiagramm mit verborgener Ursache existiert eine gültige Menge (Experiment 4). | Instrumente |
+| **Die Struktur ist bekannt** | Mit nur X, M und Y lässt sich keine der Annahmen aus den Daten prüfen; ein falsches Diagramm gibt eine sichere, aber falsche Zahl. | Wie falsch darf das Diagramm sein? |
+| **Es gibt überhaupt eine Vordertür** | In rund jedem zehnten der erzeugten 7-Knoten-Diagramme mit verborgener Ursache existiert eine gültige Menge (Experiment 4). | Instrumente |
 """
 )
 

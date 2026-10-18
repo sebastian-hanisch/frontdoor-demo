@@ -247,5 +247,5 @@ def verdict_binary(res: dict) -> tuple[str, str]:
 
 def verdict_diagrams(res: dict) -> tuple[str, str]:
     share = 100 * res["frontdoor"] / res["diagrams"]
-    return "info", (f"In {res['diagrams']} Zufallsdiagrammen mit verborgener gemeinsamer Ursache gibt es nie eine gültige Backdoor-Menge ({res['backdoor']}), aber in {res['frontdoor']} "
+    return "info", (f"In {res['diagrams']} Zufallsdiagrammen mit verborgener gemeinsamer Ursache gibt es per Konstruktion keine gültige Backdoor-Menge ({res['backdoor']}), aber in {res['frontdoor']} "
                     f"({de(share, 1)} %) eine Frontdoor-Menge. In allen {res['checked'] - res['wrong']} von {res['checked']} geprüften linearen Populationen stimmt die Formel mit der Wirkung.")

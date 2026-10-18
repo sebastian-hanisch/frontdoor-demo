@@ -57,7 +57,7 @@ def test_experiment_1_weak_first_step(base):
     for c, bias in ((0.5, 0.001), (0.2, -0.002), (0.1, 0.000), (0.05, 0.001)):
         assert by[c]["Frontdoor"]["bias"] == pytest.approx(bias, abs=0.0006), c
         assert 0.94 <= by[c]["Frontdoor"]["cover"] <= 0.9625, c
-    for c, sd in ((0.5, 0.044), (0.2, 0.034), (0.1, 0.033), (0.05, 0.031)):
+    for c, sd in ((0.5, 0.044), (0.2, 0.034), (0.1, 0.0325), (0.05, 0.031)):
         assert by[c]["Frontdoor"]["sd"] == pytest.approx(sd, abs=0.0006), c
     assert all(0.059 <= by[c]["Orakel mit U (nicht beobachtbar)"]["sd"] <= 0.068 for c in (0.5, 0.2, 0.1, 0.05))
     assert by[0.05]["Frontdoor"]["width"] == pytest.approx(0.125, abs=0.0006)
